@@ -3,11 +3,7 @@ const db = require("./db");
 module.exports = {
   Query: {
     tasks: async () => {
-      const tasks = await db("tasks");
-      return tasks.map(async (t) => {
-        const result = await db("tasks").where("id", t.id).first();
-        return result;
-      });
+      return db("tasks").orderBy("id", "asc");
     },
   },
 

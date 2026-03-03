@@ -9,8 +9,11 @@ module.exports = {
 
   Mutation: {
     createTask: async (_, { title }) => {
-      const inserted = await db("tasks").insert({ title, completed: false });
-      return inserted[0];
+      const [task] = await db("tasks")
+        .insert({ title, completed: false })
+        .returning(["id", "title", "completed"]);
+
+      return task;
     },
 
     toggleTask: async (_, { id }) => {

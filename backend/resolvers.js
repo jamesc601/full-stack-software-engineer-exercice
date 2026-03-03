@@ -18,7 +18,7 @@ module.exports = {
     },
 
     toggleTask: async (_, { id }) => {
-      const task = db("tasks").where("id", id).first();
+      const task = await db("tasks").where("id", id).first();
 
       await db("tasks").where("id", id).update({ completed: !task.completed });
 

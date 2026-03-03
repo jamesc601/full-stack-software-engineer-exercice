@@ -10,3 +10,15 @@ These are both small issues and can be navigated with intuition but I aim to tid
 The `package-lock.json` files are not in source control. This will be the first change before I get into any other work.
 
 There is also a high severity vulnerability warning when installing both frontend dependencies and a backend dependency warning. I don't plan to address these as they are almost certainly out of scope.
+
+## 2. Early bug triage observations
+
+After launching the app and doing a quick exploratory pass, I identified three issues:
+
+- The `/api/graphql` endpoint is being hit continuously, which leads to identification errors.
+- Clicking a completed task moves it to the bottom of the list.
+- Clicking **Cancel** while creating a new task still inserts a new task.
+
+I am confident that items 1 and 3 are clear bugs. For item 2, I need more product/context validation before deciding whether this is actually incorrect behavior or intended list sorting.
+
+Planned next steps are to address item 1 first (app-breaking), then item 3 (clear user-flow bug), and investigate item 2 afterward.

@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [tasks, setTasks] = useState([]);
 
-  useEffect(() => {
-    fetch("/api/graphql", {
+  const fetchTasks = () => {
+    return fetch("/api/graphql", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -13,7 +13,11 @@ export default function Home() {
     })
       .then((res) => res.json())
       .then((data) => setTasks(data.data.tasks));
-  });
+  };
+
+  useEffect(() => {
+    fetchTasks();
+  }, []);
 
   const addTask = async () => {
     const title = prompt("Task?");
@@ -28,6 +32,8 @@ export default function Home() {
       }),
       headers: { "Content-Type": "application/json" },
     });
+
+    await fetchTasks();
   };
 
   const toggleTask = async (id: string) => {
@@ -38,6 +44,8 @@ export default function Home() {
       }),
       headers: { "Content-Type": "application/json" },
     });
+
+    await fetchTasks();
   };
 
   return (

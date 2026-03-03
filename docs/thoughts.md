@@ -22,3 +22,11 @@ After launching the app and doing a quick exploratory pass, I identified three i
 I am confident that items 1 and 3 are clear bugs. For item 2, I need more product/context validation before deciding whether this is actually incorrect behavior or intended list sorting.
 
 Planned next steps are to address item 1 first (app-breaking), then item 3 (clear user-flow bug), and investigate item 2 afterward.
+
+## 3. Next step: list behavior investigation
+
+As I have worked on this project, it has been clear to me that the list isn't working as expected.
+
+The toggling of an item in the list is not as expected. When clicking on a done item, it does not toggle back to pending. After inspecting the code, going back to pending is the clear intention.
+
+The items also appear to be in a different order sometimes, so I will need to investigate and fix what causes this.

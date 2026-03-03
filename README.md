@@ -10,40 +10,53 @@ A simple Task Manager application built with Next.js, Apollo GraphQL, KnexJS, an
 - NodeJS
 - Npm (or other NodeJS package manager)
 
-### Running the Application
+### Setup Instructions
 
-1. Clone this repository
-2. Run the following command:
-
+#### 1. Clone the Repository
 ```bash
-docker compose up 
+git clone <repository-url>
+cd full-stack-software-engineer-exercice
 ```
 
-3. Create the database tables
+#### 2. Database Setup
+Start the PostgreSQL database using Docker:
 ```bash
+docker compose up
+```
+
+#### 3. Backend Setup
+Navigate to the backend folder and set up the database:
+```bash
+cd backend
+npm install
 npm run migrate
-```
-
-4. Seed your database with initial data
-```bash
 npm run seed
 ```
 
-5. Start backend service 
+#### 4. Frontend Setup
+In a new terminal, navigate to the frontend folder and install dependencies:
 ```bash
-> cd backend
-> npm run dev
+cd frontend
+npm install
 ```
 
-6. Start frontend service 
+### Running the Application
+
+#### Start the Backend
+From the `backend` folder:
 ```bash
-> cd frontend
-> npm run dev
+npm run dev
 ```
 
-7. Open your browser:
-   - Frontend: http://localhost:3000
-   - GraphQL Playground: http://localhost:4000/graphql
+#### Start the Frontend
+In a new terminal, from the `frontend` folder:
+```bash
+npm run dev
+```
+
+#### Access the Application
+- Frontend: http://localhost:3000
+- GraphQL Playground: http://localhost:4000/graphql
 
 ## Project Structure
 

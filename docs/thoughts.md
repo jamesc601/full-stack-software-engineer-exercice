@@ -50,3 +50,14 @@ I will prioritize and fix the following, with reasoning:
 The remaining options are mostly micro-optimizations and are lower priority for this pass.
 
 I believe I already fixed the N+1 query problem as part of my bug fix for task ordering.
+
+## 5. Validation and error handling reflections
+
+The validation and error handling improvements I've implemented represent a good enough solution for the application in its current state and scale, given the time constraints I set for this work.
+
+One potential improvement would be to reconsider which errors we want to display to end users. For example, the error message "Task id must be a positive integer" is not particularly user-friendly, as users don't directly input task IDs—this is more of an internal validation message that leaked into the user-facing API.
+
+If the size of the application were to increase significantly, the approach to error handling and display could be evolved to be more scalable. This might include:
+- Creating separate error types for user-facing vs. internal errors
+- Implementing a more sophisticated error mapping system
+- Customizing error messages and handling based on specific scenarios and contexts

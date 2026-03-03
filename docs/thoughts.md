@@ -30,3 +30,23 @@ As I have worked on this project, it has been clear to me that the list isn't wo
 The toggling of an item in the list is not as expected. When clicking on a done item, it does not toggle back to pending. After inspecting the code, going back to pending is the clear intention.
 
 The items also appear to be in a different order sometimes, so I will need to investigate and fix what causes this.
+
+## 4. Prioritization for next fixes
+
+I have been asked to choose from the following potential improvements:
+
+- Remove inefficient queries (N+1 problems)
+- Add validation and error handling
+- Fix database insert return values
+- Proper async/await handling
+- Frontend re-render optimization
+- Optimistic UI updates or proper refetching
+
+I will prioritize and fix the following, with reasoning:
+
+- Fix database insert return values: this is an API contract correctness issue and is more than an optimization; something is currently incorrect here.
+- Add validation and error handling: this prevents crashes and undefined behavior in common user flows.
+
+The remaining options are mostly micro-optimizations and are lower priority for this pass.
+
+I believe I already fixed the N+1 query problem as part of my bug fix for task ordering.
